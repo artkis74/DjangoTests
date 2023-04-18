@@ -120,4 +120,3 @@ def test_delete_course(client, course_factory):
 
         assert response.status_code == 204
         assert Course.objects.filter(pk=course.id).exists() == False
-
