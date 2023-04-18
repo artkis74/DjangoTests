@@ -50,8 +50,8 @@ def test_get_course_list(client, course_factory):
 
     assert response.status_code == 200
     assert len(data) == len(courses)
-    for i, c in enumerate(data):
-        assert courses[i].name == c['name']
+    for i, x in enumerate(data):
+        assert courses[i].name == x['name']
 
 
 @pytest.mark.django_db
@@ -81,8 +81,8 @@ def test_filter_name(client, course_factory):
 
         assert response.status_code == 200
 
-        for c in data:  # т.к. name не уникальное поле, видимо, в выборке может быть несколько курсов с одним названием
-            assert c['name'] == course.name
+        for x in data:
+            assert x['name'] == course.name
 
 
 @pytest.mark.django_db
